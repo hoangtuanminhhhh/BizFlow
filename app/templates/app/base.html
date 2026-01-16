@@ -8,6 +8,8 @@
     <link href="{%static 'app/css/all.min}' %}" rel="stylesheet" />
     <link href="{%static 'app/css/owl.carousel.mine}' %}" rel="stylesheet" />
     <link href="{%static 'app/css/style}' %}" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="{%static 'app/css/main.css' %}">
     <!--js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -35,8 +37,18 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'base' %}">Trang chủ</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sản phẩm</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sản phẩm
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Đồ khô</a></li>
+            <li><a class="dropdown-item" href="#">Nước giải khát</a></li>
+            <li><a class="dropdown-item" href="#">Gia vị</a></li>
+            <li><a class="dropdown-item" href="#">Đồ gói</a></li>
+            <li><a class="dropdown-item" href="#">Vệ sinh nhà cửa</a></li>
+            <li><a class="dropdown-item" href="#">Bánh kẹo</a></li>
+          </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Kiểm tra đơn hàng</a>
