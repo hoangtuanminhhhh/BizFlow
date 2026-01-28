@@ -1,5 +1,6 @@
 {% extends 'app/base.html' %}
-{%load static%}
+{% load static %}
+{% load humanize %}
 {% block banner_slider %}
 <div id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
@@ -40,119 +41,25 @@
   </button>
 </div>
 {% endblock banner_slider  %}
-{%block main-content%}
+{%block main_content%}
 <div class="row">
+    {% for product in products %}
         <div class="col-lg-2">
-                <img class="thumbnail" src="{% static 'app/images/Đồ khô/boham.png' %}">
+                {% if product.image %}
+                    <img class="thumbnail" src="{{ product.image.url }}">
+                {% else %}
+                    <img class="thumbnail" src="{% static 'app/images/placeholder.png' %}">
+                {% endif %}
             <div class="box-element product">
-                <h4 class="text-center"><strong>Bò hầm đóng hộp</strong></h4>
+                <h4 class="text-center"><strong>{{ product.name }}</strong></h4>
                 <hr>
                 <button class="btn btn-outline-secondary add-btn"><strong>Thêm vào giỏ hàng</strong></button>
-                <h3 style="display: inline-block; float: right">30.000</h3>
+                <h3 style="display: inline-block; float: right">{{ product.price|intcomma }}</h3>
+
             </div>
         </div> 
-        <div class="col-lg-2">
-                <img class="thumbnail" src="{% static 'app/images/Đồ khô/chadum.png' %}">
-            <div class="box-element product">
-                <h4 class="text-center"><strong>Chả đùm đóng hộp</strong></h4>
-                <hr>
-                <button class="btn btn-outline-secondary add-btn"><strong>Thêm vào giỏ hàng</strong></button>
-                <h3 style="display: inline-block; float: right">30.000</h3>
-            </div>
-        </div> 
-        <div class="col-lg-2">
-                <img class="thumbnail" src="{% static 'app/images/Đồ khô/heo2lat.png' %}">
-            <div class="box-element product">
-                <h4 class="text-center"><strong>Heo 2 lát đóng hộp</strong></h4>
-                <hr>
-                <button class="btn btn-outline-secondary add-btn"><strong>Thêm vào giỏ hàng</strong></button>
-                <h3 style="display: inline-block; float: right">30.000</h3>
-            </div>
-        </div>
-        <div class="col-lg-2">
-                <img class="thumbnail" src="{% static 'app/images/Đồ khô/vitrung.png' %}">
-            <div class="box-element product">
-                <h4 class="text-center"><strong>Vỉ trứng Ba Huân</strong></h4>
-                <hr>
-                <button class="btn btn-outline-secondary add-btn"><strong>Thêm vào giỏ hàng</strong></button>
-                <h3 style="display: inline-block; float: right">32.000</h3>
-            </div>
-        </div> 
-        <div class="col-lg-2">
-                <img class="thumbnail" src="{% static 'app/images/Đồ khô/xucxichheo.png' %}">
-            <div class="box-element product">
-                <h4 class="text-center"><strong>Xúc xích heo</strong></h4>
-                <hr>
-                <button class="btn btn-outline-secondary add-btn"><strong>Thêm vào giỏ hàng</strong></button>
-                <h3 style="display: inline-block; float: right">26.000</h3>
-            </div>
-        </div> 
-        <div class="col-lg-2">
-                <img class="thumbnail" src="{% static 'app/images/Đồ khô/xucxichlac.png' %}">
-            <div class="box-element product">
-                <h4 class="text-center"><strong>Xúc xích hộp lắc vị phô mai</strong></h4>
-                <hr>
-                <button class="btn btn-outline-secondary add-btn"><strong>Thêm vào giỏ hàng</strong></button>
-                <h3 style="display: inline-block; float: right">15.000</h3>
-            </div>
-        </div> 
-</div>
-<div class="row">
-        <div class="col-lg-2">
-                <img class="thumbnail" src="{% static 'app/images/Mì gói/haohaolaukimchi.png' %}">
-            <div class="box-element product">
-                <h4 class="text-center"><strong>Mì Hảo hảo lẩu kim chi</strong></h4>
-                <hr>
-                <button class="btn btn-outline-secondary add-btn"><strong>Thêm vào giỏ hàng</strong></button>
-                <h3 style="display: inline-block; float: right">4.000</h3>
-            </div>
-        </div> 
-        <div class="col-lg-2">
-                <img class="thumbnail" src="{% static 'app/images/Mì gói/indomie.png' %}">
-            <div class="box-element product">
-                <h4 class="text-center"><strong>Mì Indomie</strong></h4>
-                <hr>
-                <button class="btn btn-outline-secondary add-btn"><strong>Thêm vào giỏ hàng</strong></button>
-                <h3 style="display: inline-block; float: right">6.000</h3>
-            </div>
-        </div> 
-        <div class="col-lg-2">
-                <img class="thumbnail" src="{% static 'app/images/Mì gói/indomiebocay.png' %}">
-            <div class="box-element product">
-                <h4 class="text-center"><strong>Indomie vị Bò cay</strong></h4>
-                <hr>
-                <button class="btn btn-outline-secondary add-btn"><strong>Thêm vào giỏ hàng</strong></button>
-                <h3 style="display: inline-block; float: right">7.000</h3>
-            </div>
-        </div>
-        <div class="col-lg-2">
-                <img class="thumbnail" src="{% static 'app/images/Mì gói/indomietrung.png' %}">
-            <div class="box-element product">
-                <h4 class="text-center"><strong>Indomie trứng</strong></h4>
-                <hr>
-                <button class="btn btn-outline-secondary add-btn"><strong>Thêm vào giỏ hàng</strong></button>
-                <h3 style="display: inline-block; float: right">5.000</h3>
-            </div>
-        </div> 
-        <div class="col-lg-2">
-                <img class="thumbnail" src="{% static 'app/images/Mì gói/koreno.png' %}">
-            <div class="box-element product">
-                <h4 class="text-center"><strong>Mì Koreno</strong></h4>
-                <hr>
-                <button class="btn btn-outline-secondary add-btn"><strong>Thêm vào giỏ hàng</strong></button>
-                <h3 style="display: inline-block; float: right">15.000</h3>
-            </div>
-        </div> 
-        <div class="col-lg-2">
-                <img class="thumbnail" src="{% static 'app/images/Mì gói/mi3mien.png' %}">
-            <div class="box-element product">
-                <h4 class="text-center"><strong>Mì 3 Miền</strong></h4>
-                <hr>
-                <button class="btn btn-outline-secondary add-btn"><strong>Thêm vào giỏ hàng</strong></button>
-                <h3 style="display: inline-block; float: right">4.000</h3>
-            </div>
-        </div> 
+        {% endfor %}
 </div>
 
 <br /><br /><br />
-{% endblock main-content %}%
+{% endblock main_content %}%
