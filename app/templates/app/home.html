@@ -10,24 +10,24 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{% static 'app/images/Banner/GIA VỊ.jpg' %}" class="d-block w-100" alt="Đủ mọi gia vị bạn cần!" height='600'>
+      <img src="{% static 'app/images/Banner/giavi.jpg' %}" class="d-block w-100" alt="Đủ mọi gia vị bạn cần!" height='600'>
       <div class="carousel-caption d-none d-md-block bg-success text-black rounded-5 px-3 py-2">
-        <h5>Đủ mọi gia vị bạn cần!</h5>
-        <p>Hãy mua ngay!</p>
+        <h5 class="text-white">Đủ mọi gia vị bạn cần!</h5>
+        <p class="text-white">Hãy mua ngay!</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="{% static 'app/images/Banner/MÌ GÓI.jpg' %}" class="d-block w-100" alt="Bạn thèm mì? Có đủ mì!" height='600'>
+      <img src="{% static 'app/images/Banner/migoi.jpg' %}" class="d-block w-100" alt="Bạn thèm mì? Có đủ mì!" height='600'>
       <div class="carousel-caption d-none d-md-block bg-success text-black rounded-5 px-3 py-2">
-        <h5>Bạn thèm mì? Có đủ mì!</h5>
-        <p>Nghe nói bạn đạo mì? Vậy thì chỗ này là dành cho bạn!</p>
+        <h5 class="text-white">Bạn thèm mì? Có đủ mì!</h5>
+        <p class="text-white">Nghe nói bạn đạo mì? Vậy thì chỗ này là dành cho bạn!</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="{% static 'app/images/Banner/SNACKS.jpg' %}" class="d-block w-100" alt="Snacks mua về xem phim nè!" height='600'>
+      <img src="{% static 'app/images/Banner/snack.jpg' %}" class="d-block w-100" alt="Snacks mua về xem phim nè!" height='600'>
       <div class="carousel-caption d-none d-md-block bg-success text-black rounded-5 px-3 py-2">
-        <h5>Snacks mua về xem phim nè!</h5>
-        <p>Mua snack về ăn xem phim cùng con vợ kế bên!</p>
+        <h5 class="text-white">Snacks mua về xem phim nè!</h5>
+        <p class="text-white">Mua snack về ăn xem phim cùng con vợ kế bên!</p>
       </div>
     </div>
   </div>
@@ -42,20 +42,15 @@
 </div>
 {% endblock banner_slider  %}
 {%block main_content%}
-<div class="row">
+<div class="row" style="width:100%">
     {% for product in products %}
         <div class="col-lg-2">
-                {% if product.image %}
-                    <img class="thumbnail" src="{{ product.image.url }}">
-                {% else %}
-                    <img class="thumbnail" src="{% static 'app/images/placeholder.png' %}">
-                {% endif %}
+                    <img class="thumbnail" src="{{ product.ImageURL }}">
             <div class="box-element product">
                 <h4 class="text-center"><strong>{{ product.name }}</strong></h4>
                 <hr>
-                <button class="btn btn-outline-secondary add-btn"><strong>Thêm vào giỏ hàng</strong></button>
+                <button style="float:right; margin:5px;" class="btn btn-outline-secondary add-btn"><strong>Thêm vào giỏ hàng</strong></button>
                 <h3 style="display: inline-block; float: right">{{ product.price|intcomma }}</h3>
-
             </div>
         </div> 
         {% endfor %}

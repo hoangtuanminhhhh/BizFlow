@@ -9,13 +9,12 @@
     <div class="col-lg-6">
         <div class="box-element">
 
-            <a  class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Quay về giỏ hàng</a>
+            <a style="float:left; margin-right:10px;" class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190;Quay về giỏ hàng</a>
             </a>
-
-            <hr>
+            <br>
             <h3 class="text-center">Chi tiết đơn hàng</h3>
             <hr>
-
+            {% for item in items %}
             <!-- Ds sản phẩm -->
             <div class="cart-row">
                 <div style="flex:2"><strong>Sản phẩm</strong></div>
@@ -23,25 +22,18 @@
                 <div style="flex:1"><strong>SL</strong></div>
                 <div style="flex:1"><strong>Tổng</strong></div>
             </div>
-
-            <!-- Demo item (sau này loop for) -->
+            {% endfor %}
+            <!-- Demo item -->
             <div class="cart-row">
-                <div style="flex:2">Mì Hảo Hảo</div>
-                <div style="flex:1">4.000đ</div>
-                <div style="flex:1">x2</div>
-                <div style="flex:1">8.000đ</div>
+                <div style="flex:2">{{ item.product.ImageURL }}</div>
+                <div style="flex:1">{{ item.product.price }}</div>
+                <div style="flex:1">{{ item.quantity }}</div>
+                <div style="flex:1">{{ item.get_total }}</div>
             </div>
-			<div class="cart-row">
-                <div style="flex:2">Xúc xích</div>
-                <div style="flex:1">15.000đ</div>
-                <div style="flex:1">x2</div>
-                <div style="flex:1">30.000đ</div>
-            </div>
-
             <hr>
 
-            <h5>Tổng tiền hàng: 2</h5>
-            <h5 style="color:black">Tổng tiền: <span id="total">40000</span> đ</h5>
+            <h5>Tổng sản phẩm: {{order.get_cart_items}}</h5>
+            <h5 style="color:black">Tổng tiền: <span id="total">{{order.get_cart_total}}</span> đ</h5>
 
         </div>
     </div>
