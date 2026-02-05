@@ -1,10 +1,9 @@
-from email import message
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .models import *
 import json
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib import messages
 from .forms import CreateUserForm
 
@@ -27,8 +26,10 @@ def loginPage(request):
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            login(request, user)
-        else: messages.info(request, 'Tên đăng nhập hoặc mật khẩu không đúng!')
+            auth_login(request, user)
+            return redirect('home')
+        else: 
+            messages.error(request, 'Tên đăng nhập hoặc mật khẩu không đúng!')
     context= {}
     return render(request, 'app/login.html', context)
 def home(request):
